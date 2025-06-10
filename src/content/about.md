@@ -4,7 +4,7 @@ title: Despre Website
 
 ### Salut 👋
 
-Acest site a fost creat ca o arhivă foto digitală dedicată clasei de Filologie E, promoția 2015, a Colegiului Național „Aurel Vlaicu” din Orăștie. Scopul său este de a oferi un acces facil la o colecție de fotografii din cei patru ani de liceu petrecuți împreună, între 2011 și 2015.
+Am creat acest website ca o arhivă foto digitală dedicată clasei de Filologie E, promoția 2015, a Colegiului Național „Aurel Vlaicu” din Orăștie. Scopul său este de a oferi un acces facil la o colecție de fotografii din cei patru ani de liceu petrecuți împreună, între 2011 și 2015.
 
 Aici se pot găsi imagini care surprind momente cheie din perioada liceului, de la cursuri, evenimente școlare, până la activități extracurriculare, etc.
 

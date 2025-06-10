@@ -1,14 +1,13 @@
 ---
-title: About me
+title: Despre Website
 ---
 
-### Hi, I'm Sara Richard 👋
+### Salut 👋
 
-I've been a photographer for over 10 years, focusing primarily on landscape and portrait photography. My journey began
-with a simple point-and-shoot camera while traveling through the mountains of Colorado, which sparked a passion that has
-taken me across the globe.
-My approach to photography centers on finding the extraordinary in ordinary moments. I believe that beauty exists
-everywhere – in urban streets, remote wilderness, and human connections. My goal is to capture these fleeting instances
-in a way that allows viewers to see the world through a different lens.
-When I'm not behind the camera, you can find me hiking in national parks, exploring new cities, or enjoying a cup of
-coffee at local cafés while planning my next photo adventure.
+Acest site a fost creat ca o arhivă foto digitală dedicată clasei de Filologie E, promoția 2015, a Colegiului Național „Aurel Vlaicu” din Orăștie. Scopul său este de a oferi un acces facil la o colecție de fotografii din cei patru ani de liceu petrecuți împreună, între 2011 și 2015.
+
+Aici se pot găsi imagini care surprind momente cheie din perioada liceului, de la cursuri, evenimente școlare, până la activități extracurriculare, etc.
+
+Am inclus, de asemenea, o secțiune dedicată reuniunii de 10 ani.
+
+Pentru orice întrebări, comentarii sau modificări, pot fi contactat la adresa matei_daniel@outlook.com, pe LinkedIn sau GitHub (detalii în partea de jos a paginii).

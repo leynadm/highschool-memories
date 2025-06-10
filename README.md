@@ -1,126 +1,61 @@
-# 📸 Astro Photography Portfolio Template
+# Highschool Memories (e.g., 📸 Photo Archive: Philology E, "Aurel Vlaicu" National College)
 
-[![Build & Test](https://github.com/rockem/astro-photography-portfolio/actions/workflows/test.yml/badge.svg)](https://github.com/rockem/astro-photography-portfolio/actions/workflows/test.yml)
+* **What it is:** A digital photo archive, to provide easy, centralized access to memories from high school (2011-2015) and the 10-year reunion for your colleagues.
 
-A modern, fast, and highly customizable photography portfolio template built with [Astro](https://astro.build).
-Ideal for photographers who want to showcase their work through a sleek, performant, and professional website.
+---
 
-👉 [View the demo](https://rockem.github.io/astro-photography-portfolio/)
+## Features
 
-## ✨ Features
+List the key functionalities or highlights of your website.
 
-- Lightning-fast performance with Astro
-- Fully responsive design
-- Optimized image loading and handling
-- Easy to customize
-- Easy to organized gallery via a yaml file
-- Multiple albums support
-- Image zoom capabilities
-- Automatic deployment to GitHub pages
-- Script to automatically create a gallery from images
+* **Organized Photo Galleries:** Categorized by years and albums.
+* **Responsive Design:** Looks great on desktops, tablets, and phones.
+* **Optimized Images:** Fast loading times for photos.
+* **Easy Photo Management:** Simple process for adding new photos.
+* **Search/Filter (if applicable):** Ability to find specific photos.
+* **Video Embedding (if applicable):** For reunion videos, etc.
 
-## 🚀 Getting Started
+---
+
+## Technologies Used
+
+* **Frontend Framework:** Astro
+* **Styling:** TailwindCSS
+* **Image Optimization:** Sharp
+* **Lightbox/Gallery:** GLightbox
+* **Language:** TypeScript
+
+---
+
+## Getting Started (for Developers/Contributors)
+
+This section provides instructions for anyone who wants to set up the project locally, modify it, or contribute.
 
 ### Prerequisites
 
-- Check [AstroJS](https://docs.astro.build/en/install-and-setup/) documentation for prerequisites
-- Basic knowledge of Astro and web development
+* Node.js (LTS version recommended)
+* Basic understanding of web development and Astro.
 
 ### Installation
 
-1. click "Use this template" on GitHub
-2. Clone your newly created template
-3. Install dependencies:
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/leynadm/highschool-memories.git](https://github.com/leynadm/highschool-memories.git)
+    cd your-repo-name
+    ```
+    *(Replace `yourusername` and `yourrepo` with your actual GitHub details)*
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
-```bash
-npm install
-# or
-yarn install
-```
+### Running Locally
 
-3. Start the development server:
+To start the development server and view your site:
 
 ```bash
 npm run dev
 # or
 yarn dev
-```
-
-## 📝 Make it your own
-
-### Configuration
-
-Edit the `astro.config.ts` file to update your github pages details:
-
-```typescript
-export default defineConfig({
-  site: '<github pages domain>',
-  base: '<repository name>',
-  // ...
-});
-```
-
-Edit the `site.config.mts` file to update your personal information:
-
-```typescript
-export default {
-  title: 'SR',
-  favicon: 'favicon.ico',
-  owner: 'Sara Richard',
-  // ... Other configurations
-};
-```
-
-### Customize site icon
-
-Replace `public/favicon.ico` with your icon and change the configuration
-if your file has a different name/location.
-
-### Customize the About page
-
-- Replace the profile image (see [site.config.mts](site.config.mts) for configuration)
-- Edit content in [about page](./src/pages/about.astro)
-
-### Adding Your Photos
-
-1. Place your images in the `src/gallery/<album>` directory
-2. Update the gallery details in `src/gallery/gallery.yaml`. Optionally, you can run `npm run generate` to generate a
-   gallery.yaml file from the images in the directory.
-3. Update meta-data for images in the `src/gallery/gallery.yaml` file.
-4. Images are automatically optimized during build
-
-### Adding photos to the featured section
-
-"featured" is a builtin collection, and images can be added to it by specifying it in the collections parameter like any
-other collection.
-
-## 🛠️ Built With
-
-- [Astro](https://astro.build) - The web framework for content-driven websites
-- [TypeScript](https://www.typescriptlang.org/) - For type safety
-- [TailwindCSS](https://tailwindcss.com) - For styling
-- [Sharp](https://sharp.pixelplumbing.com/) - For image optimization
-- [GLightbox](https://biati-digital.github.io/glightbox/) - Responsive lightbox gallery
-
-## ⚙️ Provided GitHub actions
-
-- [Build & Test](./.github/workflows/test.yml) - Ensure build integrity
-- [Quality](./.github/workflows/quality.yml) - Run pre-commit checks
-- [Deploy Astro Site](./.github/workflows/deploy.yml) - Publish to GitHub pages
-
-## 📄 License
-
-This project is licensed under the MIT License, see the [LICENSE](LICENSE) file for details.
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request or an Issue.
-
-## 💖 Support
-
-If you find this template useful, please consider giving it a ⭐️ on GitHub!
-
-## 📧 Contact
-
-- [Instagram](https://www.instagram.com/lesegal/)
-- [GitHub](https://github.com/rockem)

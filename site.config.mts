@@ -1,5 +1,5 @@
 import type { AstroInstance } from 'astro';
-import { Github, Instagram } from 'lucide-astro';
+import { Github, Linkedin } from 'lucide-astro';
 
 export interface SocialLink {
 	name: string;
@@ -8,20 +8,20 @@ export interface SocialLink {
 }
 
 export default {
-	title: 'SR',
-	favicon: 'favicon.ico',
-	owner: 'Sara Richard',
+	title: 'Amintiri din Liceu',
+	favicon: 'favicon.svg',
+	owner: 'Amintiri din Liceu - CNAV - Clasa E - 2015',
 	profileImage: 'profile.webp',
 	socialLinks: [
 		{
 			name: 'GitHub',
-			url: 'https://github.com/rockem/astro-photography-portfolio',
+			url: 'https://github.com/leynadm',
 			icon: Github,
 		} as SocialLink,
 		{
-			name: 'Instagram',
-			url: 'https://www.instagram.com',
-			icon: Instagram,
+			name: 'LinkedIn',
+			url: 'https://www.linkedin.com/in/matei-daniel/',
+			icon: Linkedin,
 		} as SocialLink,
 	],
 };

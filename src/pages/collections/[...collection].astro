@@ -1,25 +1,38 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
-import PhotoGrid from '../../components/PhotoGrid.astro';
+// We will change this to a .jsx component for interactivity
+import PhotoGrid from '../../components/PhotoGrid.jsx'; 
 import { getCollections, getImages } from '../../data/imageStore';
 
+// --- FIX #1: ADD THIS SECTION BACK ---
 const allCollection = {
 	id: undefined,
 	name: 'Toate',
 };
-const collections = [allCollection, ...(await getCollections())];
-const { collection } = Astro.params;
-const images = await getImages(collection ? { collection } : {});
-const base = import.meta.env.BASE_URL;
+// This line was missing, causing the error
+const collections = [allCollection, ...(await getCollections())]; 
+// --- END FIX #1 ---
 
+const PAGE_SIZE = 30;
+const { collection } = Astro.params;
+
+// This part is correct! It fetches the first page of images.
+const { images: initialImages, total: totalImages } = await getImages({
+    collection,
+    limit: PAGE_SIZE,
+    page: 1,
+});
+
+// --- FIX #2: ADD getStaticPaths BACK ---
 export const getStaticPaths = async () => {
-	return [{ id: undefined }, ...(await getCollections())].map((collection) => {
+	// This is required for Astro to know which pages to build
+	const staticCollections = [{ id: undefined }, ...(await getCollections())];
+	return staticCollections.map((collection) => {
 		return {
 			params: { collection: collection.id },
 		};
 	});
 };
-
 ---
 
 <MainLayout>
@@ -32,25 +45,31 @@ export const getStaticPaths = async () => {
 
 			<div class="flex justify-center mb-10">
 				<div class="flex flex-wrap gap-2 justify-center">
-					{
-						collections.map((collectionBtn) => (
-							<a href={`/collections/${collectionBtn.id ? collectionBtn.id : ''}`}>
-								<div
-									class={`px-4 py-2 border ${
-										collectionBtn.id === collection
-											? 'border-black bg-black text-white'
-											: 'border-gray-200 text-gray-700 hover:border-gray-300'
-									} transition-all`}
-								>
-									{collectionBtn.name}
-								</div>
-							</a>
-						))
-					}
+					{/* This part now works because `collections` is defined */}
+					{collections.map((collectionBtn) => (
+						<a href={`/collections/${collectionBtn.id ? collectionBtn.id : ''}`}>
+							<div
+								class={`px-4 py-2 border ${
+									collectionBtn.id === collection
+										? 'border-black bg-black text-white'
+										: 'border-gray-200 text-gray-700 hover:border-gray-300'
+								} transition-all`}
+							>
+								{collectionBtn.name}
+							</div>
+						</a>
+					))}
 				</div>
 			</div>
-
-			<PhotoGrid images={images} />
+			
+			{/* Pass the required props to the new client component */}
+			<PhotoGrid
+				client:load
+				initialImages={initialImages}
+				totalImages={totalImages}
+				pageSize={PAGE_SIZE}
+				collection={collection}
+			/>
 		</div>
 	</section>
 </MainLayout>

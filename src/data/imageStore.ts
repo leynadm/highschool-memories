@@ -42,6 +42,8 @@ interface GetImagesOptions {
 	collection?: string;
 	sortBy?: 'captureDate';
 	order?: 'asc' | 'desc';
+	limit?: number; // ADDED
+	page?: number;  // ADDED
 }
 
 /**
@@ -53,13 +55,38 @@ interface GetImagesOptions {
  * @returns {Promise<Image[]>} Retrieved images.
  * @throws {ImageStoreError} Throws an error if loading the gallery data fails.
  */
-export const getImages = async (options: GetImagesOptions = {}): Promise<Image[]> => {
-	const { galleryPath = defaultGalleryPath, collection } = options;
+export const getImages = async (
+	options: GetImagesOptions = {},
+): Promise<{ images: Image[]; total: number }> => { // CHANGED return type
+	const {
+		galleryPath = defaultGalleryPath,
+		collection,
+		limit,
+		page = 1 // ADDED: Default to page 1
+	} = options;
+
 	try {
-		let images = (await loadGalleryData(galleryPath)).images;
-		images = filterImagesByCollection(collection, images);
-		images = sortImages(images, options);
-		return processImages(images, galleryPath);
+		// 1. Load, filter, and sort the raw gallery image data (not the final processed images)
+		let galleryImages = (await loadGalleryData(galleryPath)).images;
+		galleryImages = filterImagesByCollection(collection, galleryImages);
+		galleryImages = sortImages(galleryImages, options);
+
+		// 2. Get the total count *before* slicing for pagination
+		const total = galleryImages.length; // ADDED
+
+		// 3. Slice the array for the current page if limit is provided
+		let paginatedGalleryImages = galleryImages;
+		if (limit) { // ADDED pagination logic
+			const offset = (page - 1) * limit;
+			paginatedGalleryImages = galleryImages.slice(offset, offset + limit);
+		}
+
+		// 4. Process only the images needed for the current page. This is very efficient!
+		const processedImages = processImages(paginatedGalleryImages, galleryPath);
+
+		// 5. Return the new data structure
+		return { images: processedImages, total }; // CHANGED
+
 	} catch (error) {
 		throw new ImageStoreError(
 			`Failed to load images from ${galleryPath}: ${getErrorMsgFrom(error)}`,

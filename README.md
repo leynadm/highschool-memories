@@ -1,4 +1,4 @@
-# Highschool Memories (e.g., 📸 Photo Archive: Philology E, "Aurel Vlaicu" National College)
+# Highschool Memories - Philology E, "Aurel Vlaicu" National College
 
 * **What it is:** A digital photo archive, to provide easy, centralized access to memories from high school (2011-2015) and the 10-year reunion for your colleagues.
 
